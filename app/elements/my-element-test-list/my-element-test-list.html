@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<polymer-element name="my-element-test-list" attributes="">
+  <template>
+    <style>
+      :host {
+        display: block;
+        background-color: #99f8b7;
+      }
+    </style>
+    <template repeat="{{name in namen}}">
+      <label>Enter your name</label>
+      <input type="text" value="{{name.vorname}}">
+      <input type="text" value="{{name.nachname}}">
+      <h1> Hallo Herr, {{name.vorname}} {{name.nachname}}!</h1>
+    </template>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        namen: [
+          {vorname: "Jakub", nachname: "Werner" },
+          {vorname: "Bachalor", nachname: "Arbeit"}
+        ]
+      });
+    })();
+  </script>
+</polymer-element>

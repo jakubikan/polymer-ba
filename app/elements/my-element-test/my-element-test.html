@@ -1,0 +1,21 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<polymer-element name="my-element-test" attributes="">
+  <template>
+    <style>
+      :host {
+        display: block;
+        background-color: #008800;
+      }
+    </style>
+    <h1> Hallo, {{name}}!</h1>
+    <span>Enter your name</span>
+    <input type="text" value="{{name}}">
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        name : ''
+      });
+    })();
+  </script>
+</polymer-element>
