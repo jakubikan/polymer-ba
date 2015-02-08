@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="my-element-shadow" attributes="">
+<polymer-element name="my-element-content" attributes="">
   <template>
     <style>
       :host {
@@ -8,7 +8,12 @@
         background-color: #3B78E7;
       }
     </style>
-    <shadow></shadow>
+    <div id="surroundingDiv">
+      <content id="heading" select="h1"></content>
+      <div id="main">
+        <content></content>
+      </div>
+    </div>
   </template>
   <script>
     (function () {

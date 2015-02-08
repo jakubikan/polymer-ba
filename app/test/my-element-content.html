@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>yo-greeting-basic</title>
+
+  <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../elements/my-element-content/my-element-content.html">
+
+</head>
+<body>
+
+  <my-element-content id="fixture">
+    <div id="subdiv">Amanda Elderbrook</div>
+    <h1>Hallo</h1>
+  </my-element-content>
+
+  <script>
+    suite('my-element-content', function() {
+      test('should contain a sub div', function() {
+        var el = document.querySelector('my-element-content');
+        var div = el.querySelector('div');
+        assert.equal(div.id, "subdiv");
+      });
+      test('should contain a h1 tag', function() {
+        var el = document.querySelector('my-element-content');
+        var h1 = el.querySelector('h1');
+        assert.equal(h1.textContent, "Hallo");
+      })
+    });
+  </script>
+
+</body>
+</html>
