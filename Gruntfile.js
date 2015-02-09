@@ -63,33 +63,6 @@ module.exports = function (grunt) {
         tasks: ['sass:server', 'autoprefixer:server']
       }
     },
-    // Compiles Sass to CSS and generates necessary files if requested
-    sass: {
-      options: {
-        loadPath: 'bower_components'
-      },
-      dist: {
-        options: {
-          style: 'compressed'
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>',
-          src: ['styles/{,*/}*.{scss,sass}', 'elements/{,*/}*.{scss,sass}'],
-          dest: '<%= yeoman.dist %>',
-          ext: '.css'
-        }]
-      },
-      server: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>',
-          src: ['styles/{,*/}*.{scss,sass}', 'elements/{,*/}*.{scss,sass}'],
-          dest: '.tmp',
-          ext: '.css'
-        }]
-      }
-    },
     autoprefixer: {
       options: {
         browsers: ['last 2 versions']
@@ -306,7 +279,6 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'sass:server',
       'copy:styles',
       'autoprefixer:server',
       'connect:livereload',
