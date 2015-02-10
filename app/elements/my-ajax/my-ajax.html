@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="my-ajax" attributes="">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <core-ajax
+      auto
+      url="http://www.filltext.com/"
+      params='{"rows":"5", "fname":"{firstName}",
+      "lname":"{lastName}", "tel":"{phone|format}",
+      "zip": "{zip}", "email":"{email}",
+      "user": "{username}", "ip":"{ip}"}'
+      handleAs="json"
+      response="{{people}}"
+      method='GET'></core-ajax>
+    <template repeat="{{person in people}}">
+      <h1>{{person.fname}}</h1>
+      <h4>Lastname: {{person.lname}}</h4>
+      <h4>{{person.email}}</h4>
+      <h4>{{person.tel}}</h4>
+      <h4>{{person.user}}</h4>
+      <h4>{{person.ip}}</h4>
+      <h4>{{person.zip}}</h4>
+    </template>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        // define element prototype here
+        handleResponse: function(event, response) {
+          console.log(response);
+        }
+      });
+    })();
+  </script>
+</polymer-element>
